@@ -1,4 +1,4 @@
-# Builds an image for Apache Kafka 0.8.1.1 from binary distribution.
+# Builds an image for Apache Kafka 0.9.0.0 from binary distribution.
 #
 # The netflixoss/java base image runs Oracle Java 7 installed atop the
 # ubuntu:trusty (14.04) official image. Docker's official java images are
