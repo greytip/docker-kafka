@@ -7,17 +7,17 @@
 # performance.
 
 FROM netflixoss/java:7
-MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
+MAINTAINER Sayeed Anjum <sayeed@greytip.com>
 
 # The Scala 2.10 build is currently recommended by the project.
-ENV KAFKA_VERSION=0.8.2.1 KAFKA_SCALA_VERSION=2.10 JMX_PORT=7203
+ENV KAFKA_VERSION=0.9.0.0 KAFKA_SCALA_VERSION=2.11 JMX_PORT=7203
 ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 RUN mkdir /kafka /data /logs
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    ca-certificates
+    ca-certificates curl
 
 # Download Kafka binary distribution
 ADD http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
