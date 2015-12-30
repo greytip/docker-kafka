@@ -46,6 +46,9 @@ ADD start.sh /start.sh
 ENV PATH /kafka/bin:$PATH
 WORKDIR /kafka
 
+RUN echo "networkaddress.cache.ttl=0" >> /usr/lib/jvm/java-7-oracle/jre/lib/security/java.security && \
+    sed -i 's/networkaddress.cache.negative.ttl=10/networkaddress.cache.negative.ttl=0/g' /usr/lib/jvm/java-7-oracle/jre/lib/security/java.security
+
 # broker, jmx
 EXPOSE 9092 ${JMX_PORT}
 VOLUME [ "/data", "/logs" ]
