@@ -48,5 +48,7 @@ if [ -z $KAFKA_JMX_OPTS ]; then
     export KAFKA_JMX_OPTS
 fi
 
+echo "Using kafka JMX options: \n$KAFKA_JMX_OPTS"
+
 echo "Starting kafka"
 exec /kafka/bin/kafka-server-start.sh /kafka/config/server.properties
