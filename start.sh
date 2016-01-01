@@ -11,6 +11,9 @@ if [ -z $USE_INSTANCE_IP ]; then
 else
    IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
    echo "Using instance IP $IP"
+   if [ -z $KAFKA_ADVERTISED_HOST_NAME ]; then
+      KAFKA_ADVERTISED_HOST_NAME=$IP
+   fi
 fi
 
 # Concatenate the IP:PORT for ZooKeeper to allow setting a full connection
